@@ -15,7 +15,7 @@ namespace GildedRoseKata
 
             var types = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(assembly => assembly.GetTypes())
-                .Where(type => type.IsAssignableTo(interfaceType));
+                .Where(type => type.IsAssignableTo(interfaceType) && type.Name != "IInventoryUpdater");
 
             foreach(var type in types)
             {
