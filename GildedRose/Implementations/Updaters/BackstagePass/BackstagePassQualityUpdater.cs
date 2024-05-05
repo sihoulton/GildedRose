@@ -1,23 +1,13 @@
 ﻿namespace GildedRoseKata
 {
-    public class BackstagePassUpdater : IInventoryUpdater
+    public class BackstagePassQualityUpdater : IQualityUpdater
     {
-        private Item _item;
+        Item _item;
 
-        public static string ItemNameToProcess() => "Backstage passes to a TAFKAL80ETC concert";
-
-        public Item UpdateItem(Item item)
+        public void UpdateQuality(Item item)
         {
             _item = item;
 
-            UpdateQuality();
-            UpdateSellIn();
-
-            return _item;
-        }
-
-        public void UpdateQuality()
-        {
             IncrementQuality();
 
             ProtectQualityParametersOrReset();
@@ -46,11 +36,6 @@
 
             if (_item.SellIn < 1)
                 _item.Quality = 0;
-        }
-
-        private void UpdateSellIn()
-        {
-            _item.SellIn--;
         }
     }
 }
