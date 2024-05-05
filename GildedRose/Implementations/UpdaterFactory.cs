@@ -27,11 +27,22 @@ namespace GildedRoseKata
                 string itemNameThatCanProcess = method.Invoke(null, null)
                                                     .ToString();
 
-                if (string.Equals(itemNameThatCanProcess, item.Name))
+                if (string.Equals(itemNameThatCanProcess, item.Name) ||
+                    HasWildCardMatchingOnName(itemNameThatCanProcess, item.Name))
                     return (IInventoryUpdater)Activator.CreateInstance(type, null);
             }
 
             return new StandardItemUpdater();
+        }
+
+        private bool HasWildCardMatchingOnName(string itemNameThatCanProcess, string itemName)
+        {
+            if (!itemNameThatCanProcess.Contains("*"))
+                return false;
+
+            string literalPartOfItemNameThatCanProcess = itemNameThatCanProcess.Substring(0, itemNameThatCanProcess.IndexOf("*"));
+
+            return itemName.StartsWith(literalPartOfItemNameThatCanProcess);
         }
     }
 }

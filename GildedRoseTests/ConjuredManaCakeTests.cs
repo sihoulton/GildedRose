@@ -34,7 +34,7 @@ namespace GildedRoseTests
         public void UpdaterShouldDegradeQualityBeforeExpiry()
         {
             Item item = new Item { Name = "Conjured Mana Cake", SellIn = 1, Quality = 1 } ;
-            var updater = new ConjuredManaCakeUpdater();
+            var updater = new ConjuredUpdater();
 
             item = updater.UpdateItem(item);
 
@@ -45,11 +45,12 @@ namespace GildedRoseTests
         public void UpdaterShouldDegradeQualityBy2AfterExpiry()
         {
             Item item = new Item { Name = "Conjured Mana Cake", SellIn = 0, Quality = 2 };
-            var updater = new ConjuredManaCakeUpdater();
+            var updater = new ConjuredUpdater();
 
             item = updater.UpdateItem(item);
 
             Assert.Equal(0, item.Quality);
         }
+
     }
 }

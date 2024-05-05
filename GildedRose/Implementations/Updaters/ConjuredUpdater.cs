@@ -1,10 +1,10 @@
 ﻿namespace GildedRoseKata
 {
-    public class ConjuredManaCakeUpdater : IInventoryUpdater
+    public class ConjuredUpdater : IInventoryUpdater
     {
         private Item _item;
 
-        public static string ItemNameToProcess() => "Conjured Mana Cake";
+        public static string ItemNameToProcess() => "Conjured *";
 
         public Item UpdateItem(Item item)
         {

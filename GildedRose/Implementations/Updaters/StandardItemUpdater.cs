@@ -4,7 +4,7 @@
     {
         private Item _item;
 
-        public static string ItemNameToProcess() => "*";
+        public static string ItemNameToProcess() => "Standard Items";
 
         public Item UpdateItem(Item item)
         {

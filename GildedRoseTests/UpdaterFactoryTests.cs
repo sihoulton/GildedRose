@@ -18,7 +18,7 @@ namespace GildedRoseTests
             var factoryUpdater = new UpdaterFactory();
             var updater = factoryUpdater.LoadAppropriateInveontoryUpdater(item);
 
-            Assert.Equal(typeof(ConjuredManaCakeUpdater), updater.GetType());
+            Assert.Equal(typeof(ConjuredUpdater), updater.GetType());
         }
 
         [Fact]
@@ -30,6 +30,17 @@ namespace GildedRoseTests
             var updater = factoryUpdater.LoadAppropriateInveontoryUpdater(item);
 
             Assert.Equal(typeof(StandardItemUpdater), updater.GetType());
+        }
+
+        [Fact]
+        public void ShouldLoadConjuredUpdaterForConjuredManaCake()
+        {
+            Item item = new Item { Name = "Conjured Mana Cake", SellIn = 1, Quality = 1 };
+
+            var factoryUpdater = new UpdaterFactory();
+            var updater = factoryUpdater.LoadAppropriateInveontoryUpdater(item);
+
+            Assert.Equal(typeof(ConjuredUpdater), updater.GetType());
         }
     }
 }
