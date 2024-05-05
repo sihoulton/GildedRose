@@ -8,13 +8,14 @@ namespace GildedRoseKata
     {
         IList<Item> Items;
         AgedBrieUpdater _agedBrieUpdater;
-
+        BackstagePassUpdater _backstagePassUpdater;
 
         public GildedRose(IList<Item> Items)
         {
             this.Items = Items;
 
             _agedBrieUpdater = new AgedBrieUpdater();
+            _backstagePassUpdater = new BackstagePassUpdater();
         }
 
         public void UpdateQuality()
@@ -34,6 +35,11 @@ namespace GildedRoseKata
                 item = _agedBrieUpdater.UpdateItem(item);
                 Items[i] = item;
             }
+            else if (Items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
+            {
+                item = _backstagePassUpdater.UpdateItem(item);
+                Items[i] = item;
+            }
             else
             {
                 if (Items[i].Name != "Aged Brie" && Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
@@ -51,25 +57,6 @@ namespace GildedRoseKata
                     if (Items[i].Quality < 50)
                     {
                         Items[i].Quality = Items[i].Quality + 1;
-
-                        if (Items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
-                        {
-                            if (Items[i].SellIn < 11)
-                            {
-                                if (Items[i].Quality < 50)
-                                {
-                                    Items[i].Quality = Items[i].Quality + 1;
-                                }
-                            }
-
-                            if (Items[i].SellIn < 6)
-                            {
-                                if (Items[i].Quality < 50)
-                                {
-                                    Items[i].Quality = Items[i].Quality + 1;
-                                }
-                            }
-                        }
                     }
                 }
 
@@ -91,17 +78,6 @@ namespace GildedRoseKata
                                     Items[i].Quality = Items[i].Quality - 1;
                                 }
                             }
-                        }
-                        else
-                        {
-                            Items[i].Quality = Items[i].Quality - Items[i].Quality;
-                        }
-                    }
-                    else
-                    {
-                        if (Items[i].Quality < 50)
-                        {
-                            Items[i].Quality = Items[i].Quality + 1;
                         }
                     }
                 }
