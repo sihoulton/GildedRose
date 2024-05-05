@@ -1,11 +1,4 @@
-﻿using GildedRoseKata;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GildedRoseKata
+﻿namespace GildedRoseKata
 {
     public class StandardItemUpdater : IInventoryUpdater
     {
@@ -23,7 +16,7 @@ namespace GildedRoseKata
             return _item;
         }
 
-        private void UpdateQuality()
+        public void UpdateQuality()
         {
             _item.Quality--;
 

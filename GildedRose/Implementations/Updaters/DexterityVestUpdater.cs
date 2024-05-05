@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GildedRoseKata
+﻿namespace GildedRoseKata
 {
     public class DexterityVestUpdater : IInventoryUpdater
     {
@@ -22,7 +16,7 @@ namespace GildedRoseKata
             return _item;
         }
 
-        private void UpdateQuality()
+        public void UpdateQuality()
         {
             if (_item.Quality > 10)
                 _item.Quality--;
