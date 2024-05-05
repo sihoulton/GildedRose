@@ -14,7 +14,7 @@ namespace GildedRoseTests
         public void ShouldIncreaseInQuality()
         {
             IList<Item> Items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 1, Quality = 0 } };
-            GildedRoseKata.GildedRose app = new GildedRoseKata.GildedRose(Items);
+            GildedRose app = new GildedRose(Items);
 
             app.UpdateQuality();
 
@@ -25,7 +25,7 @@ namespace GildedRoseTests
         public void ShouldMaxQualityAt50()
         {
             IList<Item> Items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 30, Quality = 50 } };
-            GildedRoseKata.GildedRose app = new GildedRoseKata.GildedRose(Items);
+            GildedRose app = new GildedRose(Items);
             app.UpdateQuality();
 
             Assert.Equal(50, Items[0].Quality);
