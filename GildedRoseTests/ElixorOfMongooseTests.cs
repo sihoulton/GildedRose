@@ -33,7 +33,7 @@ namespace GildedRoseTests
         public void UpdaterShouldDegradeQualityBeforeExpiry()
         {
             var item = new Item { Name = "Elixir of the Mongoose", SellIn = 1, Quality = 1 };
-            var updater = new ElixorOfMongooseUpdater();
+            var updater = new StandardItemUpdater();
 
             item = updater.UpdateItem(item);
 
@@ -44,7 +44,7 @@ namespace GildedRoseTests
         public void UpdaterShouldDegradeQualityBy1AfterExpiry()
         {
             var item = new Item { Name = "Elixir of the Mongoose", SellIn = 0, Quality = 2 };
-            var updater = new ElixorOfMongooseUpdater();
+            var updater = new StandardItemUpdater();
 
             item = updater.UpdateItem(item);
 
