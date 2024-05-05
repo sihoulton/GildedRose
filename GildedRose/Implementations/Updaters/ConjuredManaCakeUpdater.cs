@@ -20,7 +20,7 @@
         {
             _item.Quality--;
 
-            if (_item.Quality == 2)
+            if (_item.Quality <= 2)
                 _item.Quality--;
 
             if (_item.Quality < 0)

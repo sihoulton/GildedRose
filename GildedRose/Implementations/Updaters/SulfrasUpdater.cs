@@ -4,6 +4,14 @@
     {
         public static string ItemNameToProcess() => "Sulfuras, Hand of Ragnaros";
 
-        public Item UpdateItem(Item item) => item;
+        public Item UpdateItem(Item item)
+        {
+            return item;
+        }
+
+        public void UpdateQuality()
+        {
+
+        }
     }
 }

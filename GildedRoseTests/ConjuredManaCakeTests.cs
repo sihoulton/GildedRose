@@ -27,7 +27,7 @@ namespace GildedRoseTests
             GildedRose app = new GildedRose(Items);
             app.UpdateQuality();
 
-            Assert.Equal(1, Items[0].Quality);
+            Assert.Equal(0, Items[0].Quality);
         }
 
         [Fact]
@@ -49,7 +49,7 @@ namespace GildedRoseTests
 
             item = updater.UpdateItem(item);
 
-            Assert.Equal(1, item.Quality);
+            Assert.Equal(0, item.Quality);
         }
     }
 }
