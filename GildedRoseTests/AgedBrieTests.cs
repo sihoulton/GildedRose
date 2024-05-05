@@ -30,5 +30,49 @@ namespace GildedRoseTests
 
             Assert.Equal(50, Items[0].Quality);
         }
+
+        [Fact]
+        public void UpdaterShouldImproveTheQualityAfterDay()
+        {
+            Item item = new Item { Name = "Aged Brie", SellIn = 30, Quality = 1 };
+
+            AgedBrieUpdater agedBrieUpdater = new AgedBrieUpdater();
+            agedBrieUpdater.UpdateItem(item);
+
+            Assert.Equal(2, item.Quality);
+        }
+
+        [Fact]
+        public void UpdaterShouldMaxQualityAt50()
+        {
+            Item item = new Item { Name = "Aged Brie", SellIn = 30, Quality = 50 };
+
+            AgedBrieUpdater agedBrieUpdater = new AgedBrieUpdater();
+            agedBrieUpdater.UpdateItem(item);
+
+            Assert.Equal(50, item.Quality);
+        }
+
+        [Fact]
+        public void UpdaterShouldDoubleQualityAfter2()
+        {
+            Item item = new Item { Name = "Aged Brie", SellIn = 30, Quality = 2 };
+
+            AgedBrieUpdater agedBrieUpdater = new AgedBrieUpdater();
+            agedBrieUpdater.UpdateItem(item);
+
+            Assert.Equal(4, item.Quality);
+        }
+
+        [Fact]
+        public void UpdaterShouldIncrementQualityBefore2()
+        {
+            Item item = new Item { Name = "Aged Brie", SellIn = 30, Quality = 0 };
+
+            AgedBrieUpdater agedBrieUpdater = new AgedBrieUpdater();
+            agedBrieUpdater.UpdateItem(item);
+
+            Assert.Equal(1, item.Quality);
+        }
     }
 }
