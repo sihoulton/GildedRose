@@ -3,6 +3,12 @@
     public class StandardItemUpdater : IInventoryUpdater
     {
         private Item _item;
+        private ISellInUpdater _sellInUpdater;
+
+        public StandardItemUpdater()
+        {
+            _sellInUpdater = new StandardSellInUpdater();
+        }
 
         public static string ItemNameToProcess() => "Standard Items";
 
@@ -11,7 +17,7 @@
             _item = item;
 
             UpdateQuality();
-            UpdateSellIn();
+            _sellInUpdater.UpdateSellIn(item);
 
             return _item;
         }
@@ -24,9 +30,5 @@
                 _item.Quality = 0;
         }
 
-        private void UpdateSellIn()
-        {
-            _item.SellIn--;
-        }
     }
 }
