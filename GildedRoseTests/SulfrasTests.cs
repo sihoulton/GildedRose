@@ -20,5 +20,16 @@ namespace GildedRoseTests
 
             Assert.Equal(1, Items[0].Quality);
         }
+
+        [Fact]
+        public void ShouldAllowQualityToBeAbove50()
+        {
+            IList<Item> Items = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 1, Quality = 55 } };
+            GildedRose app = new GildedRose(Items);
+
+            app.UpdateQuality();
+
+            Assert.Equal(55, Items[0].Quality);
+        }
     }
 }
