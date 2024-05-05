@@ -13,21 +13,36 @@ namespace GildedRoseTests
         [Fact]
         public void ShouldDegradeQualityBeforeExpiry()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "+5 Dexterity Vest", SellIn = 1, Quality = 1 } };
-            GildedRose app = new GildedRose(Items);
+            IList<Item> items = new List<Item> { new Item { Name = "+5 Dexterity Vest", SellIn = 1, Quality = 1 } };
+            GildedRose app = new GildedRose(items);
+
             app.UpdateQuality();
 
-            Assert.Equal(0, Items[0].Quality);
+            Assert.Equal(0, items[0].Quality);
         }
 
         [Fact]
         public void ShouldDegradeQualityBy2AfterExpiry()
         {
-            IList<Item> Items = new List<Item> { new Item { Name = "+5 Dexterity Vest", SellIn = 0, Quality = 2 } };
-            GildedRose app = new GildedRose(Items);
+            IList<Item> items = new List<Item> { new Item { Name = "+5 Dexterity Vest", SellIn = 0, Quality = 2 } };
+            GildedRose app = new GildedRose(items);
+
             app.UpdateQuality();
 
-            Assert.Equal(0, Items[0].Quality);
+            Assert.Equal(0, items[0].Quality);
+        }
+
+        [Fact]
+        public void UpdaterShouldDegradeQualityBeforeExpiry()
+        {
+            Item item = new Item { Name = "+5 Dexterity Vest", SellIn = 1, Quality = 1 } ;
+
+            var updater = new DexterityVestUpdater();
+
+            item = updater.UpdateItem(item);
+
+            Assert.Equal(0, item.SellIn);
+            Assert.Equal(0, item.Quality);
         }
     }
 }

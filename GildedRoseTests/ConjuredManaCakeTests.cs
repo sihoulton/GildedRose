@@ -27,7 +27,29 @@ namespace GildedRoseTests
             GildedRose app = new GildedRose(Items);
             app.UpdateQuality();
 
-            Assert.Equal(0, Items[0].Quality);
+            Assert.Equal(1, Items[0].Quality);
+        }
+
+        [Fact]
+        public void UpdaterShouldDegradeQualityBeforeExpiry()
+        {
+            Item item = new Item { Name = "Conjured Mana Cake", SellIn = 1, Quality = 1 } ;
+            var updater = new ConjuredManaCakeUpdater();
+
+            item = updater.UpdateItem(item);
+
+            Assert.Equal(0, item.Quality);
+        }
+
+        [Fact]
+        public void UpdaterShouldDegradeQualityBy2AfterExpiry()
+        {
+            Item item = new Item { Name = "Conjured Mana Cake", SellIn = 0, Quality = 2 };
+            var updater = new ConjuredManaCakeUpdater();
+
+            item = updater.UpdateItem(item);
+
+            Assert.Equal(1, item.Quality);
         }
     }
 }
