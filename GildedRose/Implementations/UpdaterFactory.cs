@@ -31,7 +31,7 @@ namespace GildedRoseKata
                     return (IInventoryUpdater)Activator.CreateInstance(type, null);
             }
 
-            throw new Exception($"Unable to find an Inventory Updator for {item.Name}");
+            return new StandardItemUpdater();
         }
     }
 }
