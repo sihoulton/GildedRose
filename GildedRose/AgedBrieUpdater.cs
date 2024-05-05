@@ -11,6 +11,8 @@ namespace GildedRoseKata
     {
         private Item _item;
 
+        public static string ItemNameToProcess() => "Aged Brie";
+
         public Item UpdateItem(Item item)
         {
             _item = item;

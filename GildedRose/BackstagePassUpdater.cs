@@ -10,6 +10,8 @@ namespace GildedRoseKata
     {
         private Item _item;
 
+        public static string ItemNameToProcess() => "Backstage passes to a TAFKAL80ETC concert";
+
         public Item UpdateItem(Item item)
         {
             _item = item;

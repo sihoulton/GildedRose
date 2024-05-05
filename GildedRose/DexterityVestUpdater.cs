@@ -10,6 +10,8 @@ namespace GildedRoseKata
     {
         private Item _item;
 
+        public static string ItemNameToProcess() => "+5 Dexterity Vest";
+
         public Item UpdateItem(Item item)
         {
             _item = item;

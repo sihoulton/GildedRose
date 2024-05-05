@@ -61,42 +61,7 @@ namespace GildedRoseKata
                 item = _elixorOfMongooseUpdater.UpdateItem(item);
                 Items[i] = item;
             }
-            //else
-            //{
-            //    if (Items[i].Name != "Aged Brie" && Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
-            //    {
-            //        if (Items[i].Quality > 0)
-            //        {
-            //            if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
-            //            {
-            //                Items[i].Quality = Items[i].Quality - 1;
-            //            }
-            //        }
-            //    }
-
-
-            //    if (Items[i].SellIn < 0)
-            //    {
-            //        if (Items[i].Name != "Aged Brie")
-            //        {
-            //            if (Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
-            //            {
-            //                if (Items[i].Quality > 0)
-            //                {
-            //                    if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
-            //                    {
-            //                        Items[i].Quality = Items[i].Quality - 1;
-            //                    }
-            //                }
-            //            }
-            //        }
-            //    }
-
-            //    if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
-            //    {
-            //        Items[i].SellIn = Items[i].SellIn - 1;
-            //    }
-            //}
+            
         }
     }
 }
