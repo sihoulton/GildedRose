@@ -2,12 +2,12 @@
 {
     public class AgedBrieUpdater: IInventoryUpdater
     {
-        private Item _item;
-        private AgedBrieQualityUpdater _agedBrieQualityUpdater = new AgedBrieQualityUpdater();
+        private IQualityUpdater _agedBrieQualityUpdater;
         private ISellInUpdater _sellInUpdater;
 
         public AgedBrieUpdater()
         {
+            _agedBrieQualityUpdater = new AgedBrieQualityUpdater();
             _sellInUpdater = new StandardSellInUpdater();
         }
 
@@ -15,12 +15,10 @@
 
         public Item UpdateItem(Item item)
         {
-            _item = item;
-
             _agedBrieQualityUpdater.UpdateQuality(item);
             _sellInUpdater.UpdateSellIn(item);
 
-            return _item;
+            return item;
         }
 
     }

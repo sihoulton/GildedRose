@@ -16,7 +16,7 @@ namespace GildedRoseTests
             Item item = new Item { Name = "Conjured Mana Cake", SellIn = 1, Quality = 1 } ;
             
             var factoryUpdater = new UpdaterFactory();
-            var updater = factoryUpdater.LoadAppropriateInveontoryUpdater(item);
+            var updater = factoryUpdater.LoadAppropriateInventoryUpdater(item);
 
             Assert.Equal(typeof(ConjuredUpdater), updater.GetType());
         }
@@ -27,7 +27,7 @@ namespace GildedRoseTests
             Item item = new Item { Name = "foo", SellIn = 1, Quality = 1 };
 
             var factoryUpdater = new UpdaterFactory();
-            var updater = factoryUpdater.LoadAppropriateInveontoryUpdater(item);
+            var updater = factoryUpdater.LoadAppropriateInventoryUpdater(item);
 
             Assert.Equal(typeof(StandardItemUpdater), updater.GetType());
         }
@@ -38,7 +38,7 @@ namespace GildedRoseTests
             Item item = new Item { Name = "Conjured Mana Cake", SellIn = 1, Quality = 1 };
 
             var factoryUpdater = new UpdaterFactory();
-            var updater = factoryUpdater.LoadAppropriateInveontoryUpdater(item);
+            var updater = factoryUpdater.LoadAppropriateInventoryUpdater(item);
 
             Assert.Equal(typeof(ConjuredUpdater), updater.GetType());
         }

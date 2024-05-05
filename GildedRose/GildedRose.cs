@@ -7,8 +7,7 @@ namespace GildedRoseKata
     public class GildedRose
     {
         IList<Item> Items;
-
-        UpdaterFactory _updaterFactory;
+        IUpdaterFactory _updaterFactory;
 
         public GildedRose(IList<Item> Items)
         {
@@ -21,18 +20,18 @@ namespace GildedRoseKata
         {
             for (var i = 0; i < Items.Count; i++)
             {
-                UpdateQualityOfItem(i);
+                UpdateItem(i);
             }
         }
 
-        public void UpdateQualityOfItem(int i)
+        public void UpdateItem(int i)
         {
             var item = Items[i];
 
-            var updater = _updaterFactory.LoadAppropriateInveontoryUpdater(item);
+            var updater = _updaterFactory.LoadAppropriateInventoryUpdater(item);
 
             if (updater == null)
-                return;
+                throw new Exception($"Unable to process item {item.Name}, may require a new Updater.");
 
             item = updater.UpdateItem(item);
             Items[i] = item;

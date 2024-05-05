@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace GildedRoseKata
 {
-    public class UpdaterFactory
+    public class UpdaterFactory: IUpdaterFactory
     {
-        public IInventoryUpdater LoadAppropriateInveontoryUpdater(Item item)
+        public IInventoryUpdater LoadAppropriateInventoryUpdater(Item item)
         {
             var interfaceType = typeof(IInventoryUpdater);
 
